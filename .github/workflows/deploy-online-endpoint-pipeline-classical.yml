@@ -62,7 +62,7 @@ jobs:
       creds: ${{secrets.AZURE_CREDENTIALS}}
   allocate-traffic:
     uses: Azure/mlops-templates/.github/workflows/allocate-traffic.yml@main
-    needs: [get-config, create-deployment]
+    needs: [get-config, create-deployment, create-deployments]
     with:
       resource_group: ${{ needs.get-config.outputs.resource_group }}
       workspace_name: ${{ needs.get-config.outputs.aml_workspace }}
